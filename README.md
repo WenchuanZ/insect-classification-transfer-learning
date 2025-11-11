@@ -105,7 +105,6 @@ jupyter notebook insect_classification_transfer_learning.ipynb
 **Training process:**
 1. Run cells sequentially to train all 4 models:
    - ResNet-18 (Finetuned)
-   - ResNet-18 (Feature Extractor)
    - DenseNet-121
    - EfficientNet-V2-S
 
