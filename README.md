@@ -20,7 +20,7 @@
 ## 📁 Project Structure
 
 ```
-/home/ian/Projects/
+insect-classification-transfer-learning/
 ├── 📂 source/                      # All code files
 │   ├── insect_classification_transfer_learning.ipynb
 │   ├── accuracy_impro.ipynb
@@ -32,15 +32,17 @@
 │   ├── add_visualization_comparison.py
 │   └── update_comparison_cell.py
 │
-├── 📂 models/                      # Trained model weights
+├── 📂 models/                      # Trained model weights (NOT INCLUDED)
 │   ├── insect_classifier_finetuned.pth          (43MB - ResNet-18)
 │   ├── insect_classifier_densenet121.pth        (27MB - DenseNet-121)
 │   └── insect_classifier_efficientnet_v2_s.pth  (78MB - EfficientNet)
+│   └── ⚠️ Train models yourself - see setup instructions
 │
-├── 📂 datas/                       # Dataset
+├── 📂 datas/                       # Dataset (NOT INCLUDED)
 │   ├── train_organized/            (11,499 images)
 │   ├── valid_organized/            (1,095 images)
 │   └── test_organized/             (546 images)
+│   └── ⚠️ Download from Kaggle - see setup instructions
 │
 ├── 📄 README.md                    # This file
 ├── 📄 ENSEMBLE_TTA_GUIDE.md        # Complete ensemble & TTA guide
@@ -48,6 +50,8 @@
 ├── 📄 ACCURACY_IMPROVEMENT_GUIDE.md # Training tips & techniques
 └── 📄 requirements.txt             # Python dependencies
 ```
+
+**⚠️ Note:** Due to GitHub file size limitations, `models/` and `datas/` directories are not included in this repository. See the Setup section for instructions on downloading the dataset and training models.
 
 ---
 
@@ -67,20 +71,61 @@ conda activate myenv
 pip install -r requirements.txt
 ```
 
-### 2. Dataset (Already Organized!)
+### 2. Download Dataset
 
-The dataset has been converted from YOLO format to PyTorch ImageFolder:
-- **12 insect classes**: Ants, Bees, Beetles, Caterpillars, Earthworms, Earwigs, Grasshoppers, Moths, Slugs, Snails, Wasps, Weevils
-- **13,140 total images**: 11,499 train / 1,095 val / 546 test
+**⚠️ Dataset and model weights are not included in this repository due to size limitations.**
+
+**Download the dataset:**
+- **Source:** [Crop Pests Dataset on Kaggle](https://www.kaggle.com/datasets/rupankarmajumdar/crop-pests-dataset)
+- **Dataset details:**
+  - 12 insect classes: Ants, Bees, Beetles, Caterpillars, Earthworms, Earwigs, Grasshoppers, Moths, Slugs, Snails, Wasps, Weevils
+  - 13,140 total images: 11,499 train / 1,095 val / 546 test
+  - Original format: YOLO (object detection)
+
+**Prepare the dataset:**
+```bash
+# After downloading, extract to datas/
+unzip archive.zip -d datas/
+
+# Convert from YOLO to PyTorch ImageFolder format
+python source/reorganize_dataset.py
+```
+
+This will create `datas/train_organized/`, `datas/valid_organized/`, and `datas/test_organized/` directories.
 
 ### 3. Train Models
+
+**⚠️ You need to train the models yourself and save them as `.pth` files.**
 
 ```bash
 cd source
 jupyter notebook insect_classification_transfer_learning.ipynb
 ```
 
-Run cells sequentially to train all 4 models (ResNet-18, ResNet-18 FE, DenseNet-121, EfficientNet-V2-S).
+**Training process:**
+1. Run cells sequentially to train all 4 models:
+   - ResNet-18 (Finetuned)
+   - ResNet-18 (Feature Extractor)
+   - DenseNet-121
+   - EfficientNet-V2-S
+
+2. Models will be automatically saved as `.pth` files in the `models/` directory:
+   ```
+   models/
+   ├── insect_classifier_finetuned.pth          (ResNet-18)
+   ├── insect_classifier_densenet121.pth        (DenseNet-121)
+   └── insect_classifier_efficientnet_v2_s.pth  (EfficientNet-V2-S)
+   ```
+
+3. Training time (with GPU):
+   - ResNet-18: ~15-20 minutes
+   - DenseNet-121: ~18-25 minutes
+   - EfficientNet-V2-S: ~20-30 minutes
+
+**Expected Results:**
+- ResNet-18: 88.10% test accuracy
+- DenseNet-121: 89.93% test accuracy
+- EfficientNet-V2-S: 93.04% test accuracy
 
 ### 4. Evaluate with Ensemble + TTA
 
