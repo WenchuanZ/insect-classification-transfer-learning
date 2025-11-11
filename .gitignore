@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# PyTorch Model Files (too large for GitHub)
+*.pth
+models/*.pth
+
+# Large Dataset Files
+datas/
+*.zip
+archive.zip
+
+# Anaconda Installer
+*.sh
+Anaconda3-*.sh
+
+# Virtual Environment
+env/
+venv/
+ENV/
+myenv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+
+# Results and outputs
+results/
+outputs/
+*.png
+*.jpg
+*.jpeg
+!**/tta_ensemble_comparison.png
+
+# Specific large files
+archive.zip
+Anaconda3-2025.06-0-Linux-x86_64.sh
+
