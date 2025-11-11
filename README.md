@@ -15,6 +15,8 @@
 | EfficientNet-V2-S | 93.04% | ~20-30 min |
 | **🏆 Ensemble + TTA** | **94.14%** | ~50-100 img/sec |
 
+<img width="1590" height="590" alt="image" src="https://github.com/user-attachments/assets/2c12274e-b080-432e-94ae-1563048120cb" />
+
 ---
 
 ## 📁 Project Structure
