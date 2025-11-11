@@ -22,8 +22,8 @@
 ```
 insect-classification-transfer-learning/
 ├── 📂 source/                      # All code files
-│   ├── insect_classification_transfer_learning.ipynb
-│   ├── accuracy_impro.ipynb
+│   ├── insect_classification_transfer_learning.ipynb -------> benchmark models with standard data augmentations, less performance 
+│   ├── accuracy_impro.ipynb                          -------> models with enhanced data augmentations, advanced training and predicting techniques, high performance 
 │   ├── reorganize_dataset.py
 │   ├── ensemble_utils.py
 │   ├── improved_augmentation.py
@@ -99,7 +99,8 @@ This will create `datas/train_organized/`, `datas/valid_organized/`, and `datas/
 
 ```bash
 cd source
-jupyter notebook insect_classification_transfer_learning.ipynb
+jupyter notebook insect_classification_transfer_learning.ipynb 
+jupyter notebook accuracy_impro.ipynb
 ```
 
 **Training process:**
