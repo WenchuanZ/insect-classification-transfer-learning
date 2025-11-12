@@ -31,8 +31,7 @@ insect-classification-transfer-learning/
 │   ├── improved_augmentation.py
 │   ├── advanced_training_techniques.py
 │   ├── test_time_augmentation.py
-│   ├── add_visualization_comparison.py
-│   └── update_comparison_cell.py
+│   └── load_and_ensemble.py
 │
 ├── 📂 models/                      # Trained model weights (NOT INCLUDED)
 │   ├── insect_classifier_finetuned.pth          (43MB - ResNet-18)
