@@ -15,6 +15,8 @@
 | EfficientNet-V2-S | 93.04% | ~20-30 min |
 | **🏆 Ensemble + TTA** | **94.14%** | ~50-100 img/sec |
 
+<img width="1590" height="590" alt="image" src="https://github.com/user-attachments/assets/2c12274e-b080-432e-94ae-1563048120cb" />
+
 ---
 
 ## 📁 Project Structure
@@ -22,15 +24,14 @@
 ```
 insect-classification-transfer-learning/
 ├── 📂 source/                      # All code files
-│   ├── insect_classification_transfer_learning.ipynb
-│   ├── accuracy_impro.ipynb
+│   ├── insect_classification_transfer_learning.ipynb -------> benchmark models with standard data augmentations, less performance 
+│   ├── accuracy_impro.ipynb                          -------> models with enhanced data augmentations, advanced training and predicting techniques, high performance 
 │   ├── reorganize_dataset.py
 │   ├── ensemble_utils.py
 │   ├── improved_augmentation.py
 │   ├── advanced_training_techniques.py
 │   ├── test_time_augmentation.py
-│   ├── add_visualization_comparison.py
-│   └── update_comparison_cell.py
+│   └── load_and_ensemble.py
 │
 ├── 📂 models/                      # Trained model weights (NOT INCLUDED)
 │   ├── insect_classifier_finetuned.pth          (43MB - ResNet-18)
@@ -99,13 +100,13 @@ This will create `datas/train_organized/`, `datas/valid_organized/`, and `datas/
 
 ```bash
 cd source
-jupyter notebook insect_classification_transfer_learning.ipynb
+jupyter notebook insect_classification_transfer_learning.ipynb 
+jupyter notebook accuracy_impro.ipynb
 ```
 
 **Training process:**
 1. Run cells sequentially to train all 4 models:
    - ResNet-18 (Finetuned)
-   - ResNet-18 (Feature Extractor)
    - DenseNet-121
    - EfficientNet-V2-S
 
