@@ -13,7 +13,7 @@ Usage in Jupyter:
     results = evaluate_single_model(models['resnet'], test_loader, "ResNet-18")
 """
 
-import torch
+import torch  
 import torch.nn as nn
 import torch.nn.functional as F
 from torchvision import models
